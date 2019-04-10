@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _2_c_sharp
+namespace WindowsFormsApp3
 {
     public partial class Form1 : Form
     {
@@ -24,17 +24,24 @@ namespace _2_c_sharp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            circle.R = Convert.ToDouble(textBox2.Text == "" ? "0" : textBox2.Text);
-            textBox5.Text = circle.ToString();
+            circle.R = Convert.ToDouble(textBox2.Text == "" || Convert.ToDouble(textBox2.Text )< 0 ? "0" : textBox2.Text);
+            txtResult1.Text = circle.ToString();
 
-            cylinder.R = Convert.ToDouble(textBox3.Text == "" ? "0" : textBox3.Text);
-            cylinder.H = Convert.ToDouble(textBox4.Text == "" ? "0" : textBox4.Text);
-            textBox1.Text = cylinder.ToString();
+            cylinder.R = Convert.ToDouble(textBox3.Text == "" || Convert.ToDouble(textBox3.Text) < 0 ? "0" : textBox3.Text);
+            cylinder.H = Convert.ToDouble(textBox4.Text == "" || Convert.ToDouble(textBox4.Text) < 0 ? "0" : textBox4.Text);
+            txtResult2.Text = cylinder.ToString();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnRnd_Click(object sender, EventArgs e)
         {
+            Random rnd =  new Random();
+
+            textBox2.Text = Convert.ToString(rnd.Next(0, 50));
+            textBox3.Text = Convert.ToString(rnd.Next(0, 50));
+            textBox4.Text = Convert.ToString(rnd.Next(0, 50));
 
         }
+
+       
     }
 }
