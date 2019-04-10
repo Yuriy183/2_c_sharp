@@ -1,17 +1,27 @@
+/*3. Создать класс окружность, член класса – R. Предусмотреть в классе методы вычисления и вывода
+сведений о фигуре – площади, длины окружности.Создать производный класс – круглый прямой
+цилиндр с высотой h, добавить в класс метод определения объема фигуры, перегрузить методы
+расчета площади и вывода сведений о фигуре.Написать программу, демонстрирующую работу с
+классом: дано N окружностей и M цилиндров, найти окружность максимальной площади и средний
+объем цилиндров.*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2_c_sharp
+namespace WindowsFormsApp3
 {
     class Circle
     {
         private const double pi = 3.14;
         private double r;
-        
-        
+
+        public static double Pi => pi;
+
+        public double R { get => r; set => r = value; }
+
         public Circle()
         {
 
@@ -19,32 +29,26 @@ namespace _2_c_sharp
 
         public Circle(double r)
         {
+            //переменная используемая в поле класса
             this.R = r;
         }
 
-        public double GetSquare()
+        public double GetSquare()//площадь
         {
           return  Pi * Math.Pow(this.R, 2);
         }
 
-        public double GetL()
+        public double GetL()//длина
         {
             return  2 * Pi * this.R;
         }
 
-        override public string ToString()
+        public override string ToString()//вывод информации
         {
-            return  "\nРадиус: "  + this.R + 
-                    "\nДлина: "   + this.GetL() + 
-                    "\nПлощадь: " + this.GetSquare()  ;
+            return  "\nРадиус:" + this.R + 
+                    "\nДлина:"   + this.GetL() + 
+                    "\nПлощадь:" + this.GetSquare()  ;
         }
 
-
-
-        public double R { get => R1; set => R1 = value >= 0 ? value : 0; }
-
-        public static double Pi => pi;
-
-        public double R1 { get => r; set => r = value; }
     }
 }
